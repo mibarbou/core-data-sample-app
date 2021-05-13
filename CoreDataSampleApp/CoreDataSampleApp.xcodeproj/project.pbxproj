@@ -17,6 +17,11 @@
 		7FD3745E264D12510019B944 /* ChargerListItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FD3745C264D12510019B944 /* ChargerListItemCell.xib */; };
 		7FD37462264D12670019B944 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD37461264D12670019B944 /* CoreDataStack.swift */; };
 		7FD37466264D176A0019B944 /* Wallbox.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7FD37464264D176A0019B944 /* Wallbox.xcdatamodeld */; };
+		7FD3746E264D185F0019B944 /* WallboxCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD3746D264D185F0019B944 /* WallboxCache.swift */; };
+		7FD37473264D19790019B944 /* Charger+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD37471264D19790019B944 /* Charger+CoreDataClass.swift */; };
+		7FD37474264D19790019B944 /* Charger+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD37472264D19790019B944 /* Charger+CoreDataProperties.swift */; };
+		7FD3759E264D2CFC0019B944 /* PersistenceObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD3759D264D2CFC0019B944 /* PersistenceObject.swift */; };
+		7FD375A3264D3BE40019B944 /* ChargerCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD375A2264D3BE40019B944 /* ChargerCache.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +37,11 @@
 		7FD3745C264D12510019B944 /* ChargerListItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChargerListItemCell.xib; sourceTree = "<group>"; };
 		7FD37461264D12670019B944 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		7FD37465264D176A0019B944 /* Wallbox.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Wallbox.xcdatamodel; sourceTree = "<group>"; };
+		7FD3746D264D185F0019B944 /* WallboxCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallboxCache.swift; sourceTree = "<group>"; };
+		7FD37471264D19790019B944 /* Charger+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Charger+CoreDataClass.swift"; sourceTree = "<group>"; };
+		7FD37472264D19790019B944 /* Charger+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Charger+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		7FD3759D264D2CFC0019B944 /* PersistenceObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceObject.swift; sourceTree = "<group>"; };
+		7FD375A2264D3BE40019B944 /* ChargerCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargerCache.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +74,7 @@
 		7FD37444264D120D0019B944 /* CoreDataSampleApp */ = {
 			isa = PBXGroup;
 			children = (
+				7FD37476264D19C70019B944 /* Objects */,
 				7FD37460264D125D0019B944 /* Cache */,
 				7FD3745A264D12410019B944 /* Views */,
 				7FD37445264D120D0019B944 /* AppDelegate.swift */,
@@ -89,10 +100,30 @@
 		7FD37460264D125D0019B944 /* Cache */ = {
 			isa = PBXGroup;
 			children = (
+				7FD3746D264D185F0019B944 /* WallboxCache.swift */,
+				7FD3759C264D2C3C0019B944 /* Persistence */,
 				7FD37461264D12670019B944 /* CoreDataStack.swift */,
 				7FD37464264D176A0019B944 /* Wallbox.xcdatamodeld */,
 			);
 			path = Cache;
+			sourceTree = "<group>";
+		};
+		7FD37476264D19C70019B944 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				7FD37471264D19790019B944 /* Charger+CoreDataClass.swift */,
+				7FD37472264D19790019B944 /* Charger+CoreDataProperties.swift */,
+			);
+			path = Objects;
+			sourceTree = "<group>";
+		};
+		7FD3759C264D2C3C0019B944 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				7FD375A2264D3BE40019B944 /* ChargerCache.swift */,
+				7FD3759D264D2CFC0019B944 /* PersistenceObject.swift */,
+			);
+			path = Persistence;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,10 +198,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				7FD37462264D12670019B944 /* CoreDataStack.swift in Sources */,
+				7FD37474264D19790019B944 /* Charger+CoreDataProperties.swift in Sources */,
 				7FD37466264D176A0019B944 /* Wallbox.xcdatamodeld in Sources */,
 				7FD3744A264D120D0019B944 /* ViewController.swift in Sources */,
 				7FD37446264D120D0019B944 /* AppDelegate.swift in Sources */,
+				7FD3746E264D185F0019B944 /* WallboxCache.swift in Sources */,
 				7FD37448264D120D0019B944 /* SceneDelegate.swift in Sources */,
+				7FD37473264D19790019B944 /* Charger+CoreDataClass.swift in Sources */,
+				7FD3759E264D2CFC0019B944 /* PersistenceObject.swift in Sources */,
+				7FD375A3264D3BE40019B944 /* ChargerCache.swift in Sources */,
 				7FD3745D264D12510019B944 /* ChargerListItemCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
