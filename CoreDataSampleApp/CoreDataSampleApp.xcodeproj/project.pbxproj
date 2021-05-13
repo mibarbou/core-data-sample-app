@@ -120,8 +120,8 @@
 		7FD3759C264D2C3C0019B944 /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
-				7FD375A2264D3BE40019B944 /* ChargerCache.swift */,
 				7FD3759D264D2CFC0019B944 /* PersistenceObject.swift */,
+				7FD375A2264D3BE40019B944 /* ChargerCache.swift */,
 			);
 			path = Persistence;
 			sourceTree = "<group>";

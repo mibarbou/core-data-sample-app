@@ -14,6 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 //        loadData()
+//        loadCache()
         return true
     }
 
@@ -65,6 +66,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         charger6.model = "Quasar"
         
         coreDataStack.saveContext()
+    }
+    
+    func loadCache() {
+        let charger1 = ChargerCache(id: 1,
+                                    name: "Charger 1",
+                                    model: "Pulsar")
+        
+        let charger2 = ChargerCache(id: 2,
+                                    name: "Charger 2",
+                                    model: "Pulsar Plus")
+        
+        let charger3 = ChargerCache(id: 3,
+                                    name: "Charger 3",
+                                    model: "Copper SB")
+        
+        let charger4 = ChargerCache(id: 4,
+                                    name: "Charger 4",
+                                    model: "Commander 2")
+        
+        let charger5 = ChargerCache(id: 5,
+                                    name: "Charger 5",
+                                    model: "Quasar")
+        
+        let charger6 = ChargerCache(id: 6,
+                                    name: "Charger 6",
+                                    model: "Supernova")
+        
+        let charger7 = ChargerCache(id: 7,
+                                    name: "Charger 7",
+                                    model: "Copper 2")
+        
+        let cache: WallboxCache = WallboxCacheDefault()
+        
+        let chargersToSave = [charger1, charger2, charger3, charger4, charger5, charger6, charger7]
+        
+        cache.save(objects: chargersToSave, update: false)
     }
 
 

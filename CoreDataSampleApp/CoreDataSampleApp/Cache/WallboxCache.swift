@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreData
 
 protocol WallboxCache {
     func fetch<T: PersistenceObject, KeyType>(type: T.Type, id: KeyType) -> T?
@@ -19,7 +20,7 @@ protocol WallboxCache {
 }
 
 final class WallboxCacheDefault: WallboxCache {
-    
+
     private let coreDataStack: CoreDataStack = CoreDataStack(modelName: "Wallbox")
     
     func fetch<T, KeyType>(type: T.Type, id: KeyType) -> T? where T : PersistenceObject {
@@ -27,16 +28,20 @@ final class WallboxCacheDefault: WallboxCache {
     }
     
     func fetchArray<T>(type: T.Type) -> [T] where T : PersistenceObject {
+//        let fetchRequest: NSFetchRequest<T> =
+        
+
         return []
     }
     
-    func save<T>(object: T, update: Bool) where T : PersistenceObject {
-        let obj = Charger(context: coreDataStack.managedContext)
-        
+    func save<T>(object: T, update: Bool = false) where T : PersistenceObject {
+        object.create(context: coreDataStack.managedContext)
+        coreDataStack.saveContext()
     }
     
-    func save<T>(objects: [T], update: Bool) where T : PersistenceObject {
-        
+    func save<T>(objects: [T], update: Bool = false) where T : PersistenceObject {
+        objects.forEach { $0.create(context: coreDataStack.managedContext) }
+        coreDataStack.saveContext()
     }
     
     func update<T>(object: T, update: (T)) where T : PersistenceObject {

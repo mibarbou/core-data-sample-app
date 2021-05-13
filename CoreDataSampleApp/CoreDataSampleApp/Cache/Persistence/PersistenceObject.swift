@@ -8,10 +8,13 @@
 import Foundation
 import CoreData
 
-protocol PersistenceObject: NSManagedObject {
+protocol PersistenceObject {
     associatedtype Object
-    static func map(input: Object, stack: CoreDataStack) -> NSManagedObject
+    func create(context: NSManagedObjectContext)
 }
+
+
+
 
 
 

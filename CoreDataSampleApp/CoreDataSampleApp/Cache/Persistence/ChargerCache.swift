@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreData
 
 struct ChargerCache {
     let id: Int64
@@ -16,6 +17,17 @@ struct ChargerCache {
         self.id = id
         self.name = name
         self.model = model
+    }
+}
+
+extension ChargerCache: PersistenceObject {
+    typealias Object = ChargerCache
+    
+    func create(context: NSManagedObjectContext) {
+        let charger = Charger(context: context)
+        charger.id = id
+        charger.name = name
+        charger.model = model
     }
 }
 
