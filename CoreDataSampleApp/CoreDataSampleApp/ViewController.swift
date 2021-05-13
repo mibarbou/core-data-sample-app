@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var chargers: [Charger] = []
+    var chargers: [ChargerCache] = []
     let coreDataStack = CoreDataStack(modelName: "Wallbox")
     
     var addedChargerNumber: Int64 = 6
@@ -31,9 +31,7 @@ class ViewController: UIViewController {
     }
     
     func setupTable() {
-        tableView.register(UINib(nibName: ChargerListItemCell.identifier,
-                                 bundle: .main),
-                           forCellReuseIdentifier: ChargerListItemCell.identifier)
+
     }
     
     func setupAddChargerBarButtonItem() {
@@ -51,14 +49,17 @@ class ViewController: UIViewController {
     }
     
     func fetchData() {
-        let fetchRequest: NSFetchRequest<Charger> = Charger.fetchRequest()
-        
-        do {
-            chargers = try coreDataStack.managedContext.fetch(fetchRequest)
-            tableView.reloadData()
-        } catch let error as NSError {
-            print("Fetch error: \(error) description: \(error.userInfo)")
-        }
+//        let fetchRequest: NSFetchRequest<Charger> = Charger.fetchRequest()
+//
+//        do {
+//            chargers = try coreDataStack.managedContext.fetch(fetchRequest)
+//            tableView.reloadData()
+//        } catch let error as NSError {
+//            print("Fetch error: \(error) description: \(error.userInfo)")
+//        }
+        let cache: WallboxCache = WallboxCacheDefault()
+        chargers = cache.fetchArray(type: ChargerCache.self)
+        tableView.reloadData()
     }
     
 }
@@ -90,7 +91,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         }
         let chargerToRemove = chargers[indexPath.row]
 
-        coreDataStack.managedContext.delete(chargerToRemove)
+//        coreDataStack.managedContext.delete(chargerToRemove)
         coreDataStack.saveContext()
         fetchData()
     }

@@ -13,8 +13,6 @@
 		7FD3744D264D120D0019B944 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FD3744B264D120D0019B944 /* Main.storyboard */; };
 		7FD3744F264D120E0019B944 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FD3744E264D120E0019B944 /* Assets.xcassets */; };
 		7FD37452264D120E0019B944 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FD37450264D120E0019B944 /* LaunchScreen.storyboard */; };
-		7FD3745D264D12510019B944 /* ChargerListItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD3745B264D12510019B944 /* ChargerListItemCell.swift */; };
-		7FD3745E264D12510019B944 /* ChargerListItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FD3745C264D12510019B944 /* ChargerListItemCell.xib */; };
 		7FD37462264D12670019B944 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD37461264D12670019B944 /* CoreDataStack.swift */; };
 		7FD37466264D176A0019B944 /* Wallbox.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7FD37464264D176A0019B944 /* Wallbox.xcdatamodeld */; };
 		7FD3746E264D185F0019B944 /* WallboxCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD3746D264D185F0019B944 /* WallboxCache.swift */; };
@@ -33,8 +31,6 @@
 		7FD3744E264D120E0019B944 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7FD37451264D120E0019B944 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7FD37453264D120E0019B944 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7FD3745B264D12510019B944 /* ChargerListItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChargerListItemCell.swift; sourceTree = "<group>"; };
-		7FD3745C264D12510019B944 /* ChargerListItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChargerListItemCell.xib; sourceTree = "<group>"; };
 		7FD37461264D12670019B944 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		7FD37465264D176A0019B944 /* Wallbox.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Wallbox.xcdatamodel; sourceTree = "<group>"; };
 		7FD3746D264D185F0019B944 /* WallboxCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallboxCache.swift; sourceTree = "<group>"; };
@@ -74,27 +70,16 @@
 		7FD37444264D120D0019B944 /* CoreDataSampleApp */ = {
 			isa = PBXGroup;
 			children = (
-				7FD37476264D19C70019B944 /* Objects */,
-				7FD37460264D125D0019B944 /* Cache */,
-				7FD3745A264D12410019B944 /* Views */,
 				7FD37445264D120D0019B944 /* AppDelegate.swift */,
 				7FD37447264D120D0019B944 /* SceneDelegate.swift */,
 				7FD37449264D120D0019B944 /* ViewController.swift */,
 				7FD3744B264D120D0019B944 /* Main.storyboard */,
+				7FD37460264D125D0019B944 /* Cache */,
 				7FD3744E264D120E0019B944 /* Assets.xcassets */,
 				7FD37450264D120E0019B944 /* LaunchScreen.storyboard */,
 				7FD37453264D120E0019B944 /* Info.plist */,
 			);
 			path = CoreDataSampleApp;
-			sourceTree = "<group>";
-		};
-		7FD3745A264D12410019B944 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				7FD3745B264D12510019B944 /* ChargerListItemCell.swift */,
-				7FD3745C264D12510019B944 /* ChargerListItemCell.xib */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		7FD37460264D125D0019B944 /* Cache */ = {
@@ -103,6 +88,7 @@
 				7FD3746D264D185F0019B944 /* WallboxCache.swift */,
 				7FD3759C264D2C3C0019B944 /* Persistence */,
 				7FD37461264D12670019B944 /* CoreDataStack.swift */,
+				7FD37476264D19C70019B944 /* Objects */,
 				7FD37464264D176A0019B944 /* Wallbox.xcdatamodeld */,
 			);
 			path = Cache;
@@ -186,7 +172,6 @@
 				7FD37452264D120E0019B944 /* LaunchScreen.storyboard in Resources */,
 				7FD3744F264D120E0019B944 /* Assets.xcassets in Resources */,
 				7FD3744D264D120D0019B944 /* Main.storyboard in Resources */,
-				7FD3745E264D12510019B944 /* ChargerListItemCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,7 +192,6 @@
 				7FD37473264D19790019B944 /* Charger+CoreDataClass.swift in Sources */,
 				7FD3759E264D2CFC0019B944 /* PersistenceObject.swift in Sources */,
 				7FD375A3264D3BE40019B944 /* ChargerCache.swift in Sources */,
-				7FD3745D264D12510019B944 /* ChargerListItemCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

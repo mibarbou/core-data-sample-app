@@ -9,12 +9,10 @@ import Foundation
 import CoreData
 
 protocol PersistenceObject {
-    associatedtype Object
+    associatedtype ManagedObject
     func create(context: NSManagedObjectContext)
+    static func fetchData(managedObject: ManagedObject.Type, context: NSManagedObjectContext) -> [Self]
 }
-
-
-
 
 
 

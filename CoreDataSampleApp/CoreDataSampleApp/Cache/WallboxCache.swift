@@ -20,7 +20,6 @@ protocol WallboxCache {
 }
 
 final class WallboxCacheDefault: WallboxCache {
-
     private let coreDataStack: CoreDataStack = CoreDataStack(modelName: "Wallbox")
     
     func fetch<T, KeyType>(type: T.Type, id: KeyType) -> T? where T : PersistenceObject {
@@ -28,12 +27,11 @@ final class WallboxCacheDefault: WallboxCache {
     }
     
     func fetchArray<T>(type: T.Type) -> [T] where T : PersistenceObject {
-//        let fetchRequest: NSFetchRequest<T> =
-        
-
-        return []
+        let result = T.fetchData(managedObject: T.ManagedObject.self, context: coreDataStack.managedContext)
+        return result
     }
     
+  
     func save<T>(object: T, update: Bool = false) where T : PersistenceObject {
         object.create(context: coreDataStack.managedContext)
         coreDataStack.saveContext()
