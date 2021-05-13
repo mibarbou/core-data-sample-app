@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Medium.ttf">
+            <string>Roboto-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="133" id="KGk-i7-Jjw" customClass="ChargerListItemCell" customModule="CoreDataSample" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="355" height="103"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="355" height="103"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CFk-Ps-Ywc">
+                        <rect key="frame" x="20" y="10" width="315" height="83"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yc6-kx-HZy">
+                                <rect key="frame" x="115" y="15" width="130" height="19.5"/>
+                                <accessibility key="accessibilityConfiguration" identifier="lblChargerName"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="130" id="rKz-98-EZt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="13"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LMk-bX-jPP">
+                                <rect key="frame" x="115" y="41.5" width="188" height="1"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="hCg-32-UGz"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6EB-Kh-cAz">
+                                <rect key="frame" x="115" y="51.5" width="188" height="16.5"/>
+                                <accessibility key="accessibilityConfiguration" identifier="lblChargerState"/>
+                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BQe-p1-jje">
+                                <rect key="frame" x="30" y="0.0" width="75" height="83"/>
+                                <accessibility key="accessibilityConfiguration" identifier="imgCharger">
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="75" id="qAS-jN-Pit"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="DmU-3K-hkg">
+                                <rect key="frame" x="253" y="15" width="50" height="20"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wifi_icon" translatesAutoresizingMaskIntoConstraints="NO" id="rgs-AZ-YSI">
+                                        <rect key="frame" x="27" y="0.0" width="23" height="20"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="imgInternet">
+                                            <bool key="isElement" value="YES"/>
+                                        </accessibility>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="VgW-G9-kNi"/>
+                                            <constraint firstAttribute="width" constant="23" id="lcu-Or-P9N"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bluetooth_icon" translatesAutoresizingMaskIntoConstraints="NO" id="1KU-61-xxN">
+                                        <rect key="frame" x="0.0" y="0.0" width="23" height="20"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="imgBluetooth">
+                                            <bool key="isElement" value="YES"/>
+                                        </accessibility>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="WvY-A2-X0b"/>
+                                            <constraint firstAttribute="width" constant="23" id="dCO-Ea-TDt"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="dTL-cW-jrP"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.30196078430000001" green="0.74901960779999999" blue="0.63529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <accessibility key="accessibilityConfiguration" identifier="cardCharger">
+                            <bool key="isElement" value="NO"/>
+                        </accessibility>
+                        <constraints>
+                            <constraint firstItem="BQe-p1-jje" firstAttribute="leading" secondItem="CFk-Ps-Ywc" secondAttribute="leading" constant="30" id="0Ii-1U-Kz5"/>
+                            <constraint firstItem="LMk-bX-jPP" firstAttribute="top" secondItem="yc6-kx-HZy" secondAttribute="bottom" constant="7" id="5ml-ow-JoF"/>
+                            <constraint firstAttribute="trailing" secondItem="6EB-Kh-cAz" secondAttribute="trailing" constant="12" id="7MX-Yw-VaY"/>
+                            <constraint firstItem="yc6-kx-HZy" firstAttribute="leading" secondItem="BQe-p1-jje" secondAttribute="trailing" constant="10" id="7XE-r8-RPk"/>
+                            <constraint firstAttribute="trailing" secondItem="LMk-bX-jPP" secondAttribute="trailing" constant="12" id="8ZH-ji-bsH"/>
+                            <constraint firstItem="6EB-Kh-cAz" firstAttribute="top" secondItem="LMk-bX-jPP" secondAttribute="bottom" constant="9" id="8z8-Rb-ND3"/>
+                            <constraint firstAttribute="bottom" secondItem="BQe-p1-jje" secondAttribute="bottom" id="FTI-Gd-BWN"/>
+                            <constraint firstItem="DmU-3K-hkg" firstAttribute="centerY" secondItem="yc6-kx-HZy" secondAttribute="centerY" id="HMH-zU-zJM"/>
+                            <constraint firstItem="6EB-Kh-cAz" firstAttribute="leading" secondItem="BQe-p1-jje" secondAttribute="trailing" constant="10" id="WnA-oE-LbH"/>
+                            <constraint firstAttribute="bottom" secondItem="6EB-Kh-cAz" secondAttribute="bottom" constant="15" id="bGN-3L-lnZ"/>
+                            <constraint firstItem="LMk-bX-jPP" firstAttribute="leading" secondItem="BQe-p1-jje" secondAttribute="trailing" constant="10" id="hTz-y8-qtq"/>
+                            <constraint firstItem="DmU-3K-hkg" firstAttribute="leading" secondItem="yc6-kx-HZy" secondAttribute="trailing" constant="8" id="l2J-UP-Omr"/>
+                            <constraint firstItem="BQe-p1-jje" firstAttribute="top" secondItem="CFk-Ps-Ywc" secondAttribute="top" id="ljs-CM-3vJ"/>
+                            <constraint firstItem="yc6-kx-HZy" firstAttribute="top" secondItem="CFk-Ps-Ywc" secondAttribute="top" constant="15" id="oL1-U7-FVE"/>
+                            <constraint firstAttribute="trailing" secondItem="DmU-3K-hkg" secondAttribute="trailing" constant="12" id="rsM-Pw-6wo"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XwB-fj-DB5">
+                        <rect key="frame" x="5" y="31.5" width="40" height="40"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3ff-f7-43E">
+                                <rect key="frame" x="11.5" y="8" width="17" height="24"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="17" id="4Xv-6S-hyb"/>
+                                    <constraint firstAttribute="height" constant="24" id="XAw-QO-q6t"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <accessibility key="accessibilityConfiguration" identifier="imgChargerLockStatus">
+                            <bool key="isElement" value="YES"/>
+                        </accessibility>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="K9W-tS-JK3"/>
+                            <constraint firstItem="3ff-f7-43E" firstAttribute="centerX" secondItem="XwB-fj-DB5" secondAttribute="centerX" id="ZV0-3a-d5Z"/>
+                            <constraint firstAttribute="width" constant="40" id="aqT-Zh-f0F"/>
+                            <constraint firstItem="3ff-f7-43E" firstAttribute="centerY" secondItem="XwB-fj-DB5" secondAttribute="centerY" id="m0X-4S-8j1"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="XwB-fj-DB5" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="2Ft-ka-R6J"/>
+                    <constraint firstItem="CFk-Ps-Ywc" firstAttribute="leading" secondItem="XwB-fj-DB5" secondAttribute="trailing" constant="-25" id="2vR-6r-3ZN"/>
+                    <constraint firstAttribute="trailing" secondItem="CFk-Ps-Ywc" secondAttribute="trailing" constant="20" id="8ft-iV-sV1"/>
+                    <constraint firstItem="CFk-Ps-Ywc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="L3s-JC-ncL"/>
+                    <constraint firstItem="CFk-Ps-Ywc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="SOd-Mj-3X7"/>
+                    <constraint firstAttribute="bottom" secondItem="CFk-Ps-Ywc" secondAttribute="bottom" constant="10" id="d8X-j4-yAF"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="blockedImageView" destination="3ff-f7-43E" id="Ip8-sX-gEb"/>
+                <outlet property="blockedView" destination="XwB-fj-DB5" id="Bx3-LP-VDk"/>
+                <outlet property="bluetoothImageView" destination="1KU-61-xxN" id="sRX-Pj-3JK"/>
+                <outlet property="chargerImageView" destination="BQe-p1-jje" id="MSP-sv-ewM"/>
+                <outlet property="chargerNameLabel" destination="yc6-kx-HZy" id="Fv7-g2-Nra"/>
+                <outlet property="container" destination="CFk-Ps-Ywc" id="kq1-JL-5tv"/>
+                <outlet property="internetConnectionImageView" destination="rgs-AZ-YSI" id="tdI-Hm-OUJ"/>
+                <outlet property="stateLabel" destination="6EB-Kh-cAz" id="vik-zS-qRm"/>
+            </connections>
+            <point key="canvasLocation" x="34.6875" y="97.711267605633807"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="bluetooth_icon" width="53" height="83"/>
+        <image name="wifi_icon" width="24" height="19"/>
+    </resources>
+</document>
