@@ -30,8 +30,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
-    
+}
+
+extension AppDelegate {
     func loadCache() {
+        loadChargersCache()
+        // Comment load sessions if you don't want to load them anymore on start
+        loadSessionsCache()
+    }
+    
+    func loadChargersCache() {
         let charger1 = ChargerCache(id: 1,
                                     name: "Charger 1",
                                     model: "Pulsar")
@@ -64,9 +72,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let chargersToSave = [charger1, charger2, charger3, charger4, charger5, charger6, charger7]
         
-        cache.save(objects: chargersToSave, update: false)
+        cache.save(objects: chargersToSave, update: true)
     }
-
-
+    
+    func loadSessionsCache() {
+        var sessionsToSave: [SessionCache] = []
+        for _ in 0..<100 {
+            let session = SessionCache(id: UUID().uuidString,
+                                       chargerId: Int64.random(in: 1...6),
+                                       energy: Double.random(in: 0...100),
+                                       chargingTime: Double.random(in: 15...10000))
+            sessionsToSave.append(session)
+        }
+        let cache: WallboxCache = WallboxCacheDefault()
+        cache.save(objects: sessionsToSave, update: true)
+    }
+    
+    
 }
 

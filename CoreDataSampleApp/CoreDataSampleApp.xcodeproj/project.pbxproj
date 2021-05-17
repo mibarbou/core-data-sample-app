@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F76F0C926529EFC00EEB53F /* Session+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F76F0C726529EFC00EEB53F /* Session+CoreDataClass.swift */; };
+		7F76F0CA26529EFC00EEB53F /* Session+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F76F0C826529EFC00EEB53F /* Session+CoreDataProperties.swift */; };
+		7F76F0CD2652BB4C00EEB53F /* SessionCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F76F0CC2652BB4C00EEB53F /* SessionCache.swift */; };
+		7F76F0DB2652CD9100EEB53F /* SessionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F76F0D92652CD9100EEB53F /* SessionCell.swift */; };
+		7F76F0DC2652CD9100EEB53F /* SessionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F76F0DA2652CD9100EEB53F /* SessionCell.xib */; };
+		7F76F0E02652CFAE00EEB53F /* SessionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F76F0DF2652CFAE00EEB53F /* SessionsViewController.swift */; };
 		7FD37446264D120D0019B944 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD37445264D120D0019B944 /* AppDelegate.swift */; };
 		7FD37448264D120D0019B944 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD37447264D120D0019B944 /* SceneDelegate.swift */; };
 		7FD3744A264D120D0019B944 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD37449264D120D0019B944 /* ViewController.swift */; };
@@ -23,6 +29,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7F76F0C726529EFC00EEB53F /* Session+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Session+CoreDataClass.swift"; sourceTree = "<group>"; };
+		7F76F0C826529EFC00EEB53F /* Session+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Session+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		7F76F0CC2652BB4C00EEB53F /* SessionCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionCache.swift; sourceTree = "<group>"; };
+		7F76F0D92652CD9100EEB53F /* SessionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionCell.swift; sourceTree = "<group>"; };
+		7F76F0DA2652CD9100EEB53F /* SessionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SessionCell.xib; sourceTree = "<group>"; };
+		7F76F0DF2652CFAE00EEB53F /* SessionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionsViewController.swift; sourceTree = "<group>"; };
 		7FD37442264D120D0019B944 /* CoreDataSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FD37445264D120D0019B944 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7FD37447264D120D0019B944 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -73,11 +85,14 @@
 				7FD37445264D120D0019B944 /* AppDelegate.swift */,
 				7FD37447264D120D0019B944 /* SceneDelegate.swift */,
 				7FD37449264D120D0019B944 /* ViewController.swift */,
+				7F76F0DF2652CFAE00EEB53F /* SessionsViewController.swift */,
 				7FD3744B264D120D0019B944 /* Main.storyboard */,
 				7FD37460264D125D0019B944 /* Cache */,
 				7FD3744E264D120E0019B944 /* Assets.xcassets */,
 				7FD37450264D120E0019B944 /* LaunchScreen.storyboard */,
 				7FD37453264D120E0019B944 /* Info.plist */,
+				7F76F0D92652CD9100EEB53F /* SessionCell.swift */,
+				7F76F0DA2652CD9100EEB53F /* SessionCell.xib */,
 			);
 			path = CoreDataSampleApp;
 			sourceTree = "<group>";
@@ -99,6 +114,8 @@
 			children = (
 				7FD37471264D19790019B944 /* Charger+CoreDataClass.swift */,
 				7FD37472264D19790019B944 /* Charger+CoreDataProperties.swift */,
+				7F76F0C726529EFC00EEB53F /* Session+CoreDataClass.swift */,
+				7F76F0C826529EFC00EEB53F /* Session+CoreDataProperties.swift */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
@@ -108,6 +125,7 @@
 			children = (
 				7FD3759D264D2CFC0019B944 /* PersistenceObject.swift */,
 				7FD375A2264D3BE40019B944 /* ChargerCache.swift */,
+				7F76F0CC2652BB4C00EEB53F /* SessionCache.swift */,
 			);
 			path = Persistence;
 			sourceTree = "<group>";
@@ -170,6 +188,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7FD37452264D120E0019B944 /* LaunchScreen.storyboard in Resources */,
+				7F76F0DC2652CD9100EEB53F /* SessionCell.xib in Resources */,
 				7FD3744F264D120E0019B944 /* Assets.xcassets in Resources */,
 				7FD3744D264D120D0019B944 /* Main.storyboard in Resources */,
 			);
@@ -182,16 +201,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F76F0CA26529EFC00EEB53F /* Session+CoreDataProperties.swift in Sources */,
 				7FD37462264D12670019B944 /* CoreDataStack.swift in Sources */,
+				7F76F0DB2652CD9100EEB53F /* SessionCell.swift in Sources */,
 				7FD37474264D19790019B944 /* Charger+CoreDataProperties.swift in Sources */,
 				7FD37466264D176A0019B944 /* Wallbox.xcdatamodeld in Sources */,
+				7F76F0CD2652BB4C00EEB53F /* SessionCache.swift in Sources */,
 				7FD3744A264D120D0019B944 /* ViewController.swift in Sources */,
 				7FD37446264D120D0019B944 /* AppDelegate.swift in Sources */,
 				7FD3746E264D185F0019B944 /* WallboxCache.swift in Sources */,
 				7FD37448264D120D0019B944 /* SceneDelegate.swift in Sources */,
+				7F76F0E02652CFAE00EEB53F /* SessionsViewController.swift in Sources */,
 				7FD37473264D19790019B944 /* Charger+CoreDataClass.swift in Sources */,
 				7FD3759E264D2CFC0019B944 /* PersistenceObject.swift in Sources */,
 				7FD375A3264D3BE40019B944 /* ChargerCache.swift in Sources */,
+				7F76F0C926529EFC00EEB53F /* Session+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

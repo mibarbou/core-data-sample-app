@@ -39,8 +39,9 @@ class ViewController: UIViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(deleteTapped))
     }
     
+    
+    // Add a generic Charger
     @objc func addTapped() {
-        
         addedChargerNumber += 1
         let chargerAdded = ChargerCache(id: addedChargerNumber,
                                         name: "Charger \(addedChargerNumber)",
@@ -51,6 +52,7 @@ class ViewController: UIViewController {
         fetchData()
     }
     
+    // Delete all Database
     @objc func deleteTapped() {
         let cache: WallboxCache = WallboxCacheDefault()
         cache.deleteAll()
@@ -62,6 +64,16 @@ class ViewController: UIViewController {
         let cache: WallboxCache = WallboxCacheDefault()
         chargers = cache.fetchArray(type: ChargerCache.self)
         tableView.reloadData()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "sessions" {
+            guard let charger = sender as? ChargerCache else {
+                return
+            }
+            let sessionsVC = segue.destination as! SessionsViewController
+            sessionsVC.charger = charger
+        }
     }
     
 }
@@ -101,10 +113,13 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let chargerSelected = chargers[indexPath.row]
         let cache: WallboxCache = WallboxCacheDefault()
+        // not need it, but implemented to test the fetch object by id.
         guard let charger = cache.fetch(type: ChargerCache.self, id: chargerSelected.primaryKey()) else {
             return
         }
         print("Charger Selected id: \(charger.id) - name: \(charger.name) - model: \(charger.model)")
+        
+        self.performSegue(withIdentifier: "sessions", sender: chargerSelected)
     }
     
 }

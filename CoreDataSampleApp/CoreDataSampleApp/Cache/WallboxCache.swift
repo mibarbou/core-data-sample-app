@@ -35,7 +35,6 @@ final class WallboxCacheDefault: WallboxCache {
     
   
     func save<T>(object: T, update: Bool = true) where T : PersistenceObject {
-        
         object.create(context: coreDataStack.managedContext)
         coreDataStack.saveContext()
     }
@@ -46,7 +45,7 @@ final class WallboxCacheDefault: WallboxCache {
     }
     
     func update<T>(object: T, update: (T)) where T : PersistenceObject {
-        
+        // TODO: - Not sure we will need to implement this
     }
     
     func delete<T>(_ object: T) where T : PersistenceObject {
