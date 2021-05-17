@@ -40,12 +40,6 @@ class ViewController: UIViewController {
     }
     
     @objc func addTapped() {
-//        let charger1 = Charger(context: coreDataStack.managedContext)
-//        addedChargerNumber += 1
-//        charger1.id = addedChargerNumber
-//        charger1.name = "Charger \(addedChargerNumber)"
-//        charger1.model = "Unknown charger #\(addedChargerNumber)"
-//        coreDataStack.saveContext()
         
         addedChargerNumber += 1
         let chargerAdded = ChargerCache(id: addedChargerNumber,
@@ -65,20 +59,7 @@ class ViewController: UIViewController {
     
     
     func fetchData() {
-//        let fetchRequest: NSFetchRequest<Charger> = Charger.fetchRequest()
-//
-//        do {
-//            chargers = try coreDataStack.managedContext.fetch(fetchRequest)
-//            tableView.reloadData()
-//        } catch let error as NSError {
-//            print("Fetch error: \(error) description: \(error.userInfo)")
-//        }
         let cache: WallboxCache = WallboxCacheDefault()
-//        let id: Int64 = 6
-//        guard let charger = cache.fetch(type: ChargerCache.self, id: id) else {
-//            return
-//        }
-//        chargers = [charger]
         chargers = cache.fetchArray(type: ChargerCache.self)
         tableView.reloadData()
     }
@@ -115,6 +96,15 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         cache.delete(chargerToRemove)
 
         fetchData()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let chargerSelected = chargers[indexPath.row]
+        let cache: WallboxCache = WallboxCacheDefault()
+        guard let charger = cache.fetch(type: ChargerCache.self, id: chargerSelected.primaryKey()) else {
+            return
+        }
+        print("Charger Selected id: \(charger.id) - name: \(charger.name) - model: \(charger.model)")
     }
     
 }

@@ -29,10 +29,26 @@ extension ChargerCache: PersistenceObject {
     }
 
     func create(context: NSManagedObjectContext) {
-        let charger = Charger(context: context)
-        charger.id = id
-        charger.name = name
-        charger.model = model
+        let fetchRequest: NSFetchRequest<Charger> = Charger.fetchRequest()
+        do {
+            fetchRequest.predicate = NSPredicate(format: "id == %@", NSNumber(value: primaryKey()))
+            let result = try context.fetch(fetchRequest)
+            if let chargerAlreadySaved = result.first {
+                chargerAlreadySaved.name = name
+                chargerAlreadySaved.model = model
+                print("Update Charger id: \(id) - name: \(name) - model: \(model)")
+                return
+            }
+            
+            let charger = Charger(context: context)
+            charger.id = id
+            charger.name = name
+            charger.model = model
+            print("Created Charger id: \(id) - name: \(name) - model: \(model)")
+            
+        } catch let error as NSError {
+            print("Fetch error: \(error) description: \(error.userInfo)")
+        }
     }
     
     static func fetchData(managedObject: Charger.Type, context: NSManagedObjectContext) -> [ChargerCache] {

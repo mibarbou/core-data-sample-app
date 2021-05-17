@@ -34,12 +34,13 @@ final class WallboxCacheDefault: WallboxCache {
     }
     
   
-    func save<T>(object: T, update: Bool = false) where T : PersistenceObject {
+    func save<T>(object: T, update: Bool = true) where T : PersistenceObject {
+        
         object.create(context: coreDataStack.managedContext)
         coreDataStack.saveContext()
     }
     
-    func save<T>(objects: [T], update: Bool = false) where T : PersistenceObject {
+    func save<T>(objects: [T], update: Bool = true) where T : PersistenceObject {
         objects.forEach { $0.create(context: coreDataStack.managedContext) }
         coreDataStack.saveContext()
     }
