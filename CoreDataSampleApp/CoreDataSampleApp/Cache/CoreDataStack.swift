@@ -41,4 +41,27 @@ class CoreDataStack {
             print("Unresolved error \(error), \(error.userInfo)")
         }
     }
+    
+    func deleteAll() {
+        let entities = storeContainer.managedObjectModel.entities
+        entities.forEach {
+            if let name = $0.name {
+                delete(entityName: name)
+            }
+        }
+        saveContext()
+    }
+}
+
+extension CoreDataStack {
+    
+    private func delete(entityName: String) {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        do {
+            try storeContainer.viewContext.execute(deleteRequest)
+        } catch let error as NSError {
+            debugPrint(error)
+        }
+    }
 }

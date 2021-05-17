@@ -22,6 +22,11 @@ struct ChargerCache {
 
 extension ChargerCache: PersistenceObject {
     typealias ManagedObject = Charger
+    typealias KeyType = Int64
+    
+    func primaryKey() -> Int64 {
+        id
+    }
 
     func create(context: NSManagedObjectContext) {
         let charger = Charger(context: context)
@@ -33,7 +38,6 @@ extension ChargerCache: PersistenceObject {
     static func fetchData(managedObject: Charger.Type, context: NSManagedObjectContext) -> [ChargerCache] {
         let fetchRequest: NSFetchRequest<Charger> = managedObject.fetchRequest()
         do {
-            //            fetchRequest.predicate = NSPredicate(format: "questionWasShown == %@", NSNumber(value: false))
             let result = try context.fetch(fetchRequest)
             
             let chargers = result.map {
@@ -45,6 +49,38 @@ extension ChargerCache: PersistenceObject {
         } catch let error as NSError {
             print("Fetch error: \(error) description: \(error.userInfo)")
             return []
+        }
+    }
+    
+    static func fetchData(managedObject: Charger.Type, id: Int64, context: NSManagedObjectContext) -> ChargerCache? {
+        let fetchRequest: NSFetchRequest<Charger> = managedObject.fetchRequest()
+        do {
+            fetchRequest.predicate = NSPredicate(format: "id == %@", NSNumber(value: id))
+            let result = try context.fetch(fetchRequest)
+            
+            let chargers = result.map {
+                ChargerCache(id: $0.id,
+                             name: $0.name ?? "",
+                             model: $0.model ?? "")
+            }
+            return chargers.first
+        } catch let error as NSError {
+            print("Fetch error: \(error) description: \(error.userInfo)")
+            return nil
+        }
+    }
+    
+    func delete(managedObject: Charger.Type, context: NSManagedObjectContext) {
+        let fetchRequest: NSFetchRequest<Charger> = managedObject.fetchRequest()
+        do {
+            fetchRequest.predicate = NSPredicate(format: "id == %@", NSNumber(value: id))
+            let result = try context.fetch(fetchRequest)
+            
+            if let chargerFound = result.first {
+                context.delete(chargerFound)
+            }
+        } catch let error as NSError {
+            print("Fetch error: \(error) description: \(error.userInfo)")
         }
     }
     

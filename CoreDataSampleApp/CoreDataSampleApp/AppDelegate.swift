@@ -14,7 +14,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 //        loadData()
-//        loadCache()
+        
+        // IMPORTANT: - Comment this line if you dont need to upload cache anymore
+        loadCache()
         return true
     }
 

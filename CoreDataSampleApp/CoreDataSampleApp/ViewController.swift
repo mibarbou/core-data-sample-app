@@ -36,17 +36,33 @@ class ViewController: UIViewController {
     
     func setupAddChargerBarButtonItem() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(deleteTapped))
     }
     
     @objc func addTapped() {
-        let charger1 = Charger(context: coreDataStack.managedContext)
+//        let charger1 = Charger(context: coreDataStack.managedContext)
+//        addedChargerNumber += 1
+//        charger1.id = addedChargerNumber
+//        charger1.name = "Charger \(addedChargerNumber)"
+//        charger1.model = "Unknown charger #\(addedChargerNumber)"
+//        coreDataStack.saveContext()
+        
         addedChargerNumber += 1
-        charger1.id = addedChargerNumber
-        charger1.name = "Charger \(addedChargerNumber)"
-        charger1.model = "Unknown charger #\(addedChargerNumber)"
-        coreDataStack.saveContext()
+        let chargerAdded = ChargerCache(id: addedChargerNumber,
+                                        name: "Charger \(addedChargerNumber)",
+                                        model: "Unknown charger #\(addedChargerNumber)")
+        let cache: WallboxCache = WallboxCacheDefault()
+        cache.save(object: chargerAdded, update: false)
+        
         fetchData()
     }
+    
+    @objc func deleteTapped() {
+        let cache: WallboxCache = WallboxCacheDefault()
+        cache.deleteAll()
+        fetchData()
+    }
+    
     
     func fetchData() {
 //        let fetchRequest: NSFetchRequest<Charger> = Charger.fetchRequest()
@@ -58,6 +74,11 @@ class ViewController: UIViewController {
 //            print("Fetch error: \(error) description: \(error.userInfo)")
 //        }
         let cache: WallboxCache = WallboxCacheDefault()
+//        let id: Int64 = 6
+//        guard let charger = cache.fetch(type: ChargerCache.self, id: id) else {
+//            return
+//        }
+//        chargers = [charger]
         chargers = cache.fetchArray(type: ChargerCache.self)
         tableView.reloadData()
     }
@@ -90,9 +111,9 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             return
         }
         let chargerToRemove = chargers[indexPath.row]
+        let cache: WallboxCache = WallboxCacheDefault()
+        cache.delete(chargerToRemove)
 
-//        coreDataStack.managedContext.delete(chargerToRemove)
-        coreDataStack.saveContext()
         fetchData()
     }
     

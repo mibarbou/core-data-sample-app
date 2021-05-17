@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import CoreData
 
 protocol WallboxCache {
     func fetch<T: PersistenceObject, KeyType>(type: T.Type, id: KeyType) -> T?
@@ -23,7 +22,10 @@ final class WallboxCacheDefault: WallboxCache {
     private let coreDataStack: CoreDataStack = CoreDataStack(modelName: "Wallbox")
     
     func fetch<T, KeyType>(type: T.Type, id: KeyType) -> T? where T : PersistenceObject {
-        return nil
+        guard let id = id as? T.KeyType else {
+            return nil
+        }
+        return T.fetchData(managedObject: T.ManagedObject.self, id: id, context: coreDataStack.managedContext)
     }
     
     func fetchArray<T>(type: T.Type) -> [T] where T : PersistenceObject {
@@ -46,16 +48,18 @@ final class WallboxCacheDefault: WallboxCache {
         
     }
     
-    func delete<T>(_ object: T) {
-        
+    func delete<T>(_ object: T) where T : PersistenceObject {
+        object.delete(managedObject: T.ManagedObject.self, context: coreDataStack.managedContext)
+        coreDataStack.saveContext()
     }
     
-    func delete<T>(_ objects: [T]) {
-        
+    func delete<T>(_ objects: [T]) where T : PersistenceObject {
+        objects.forEach { delete($0) }
+        coreDataStack.saveContext()
     }
     
     func deleteAll() {
-        
+        coreDataStack.deleteAll()
     }
     
 }
