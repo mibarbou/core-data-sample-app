@@ -46,7 +46,7 @@ class ViewController: UIViewController {
         let chargerAdded = ChargerCache(id: addedChargerNumber,
                                         name: "Charger \(addedChargerNumber)",
                                         model: "Unknown charger #\(addedChargerNumber)")
-        let cache: WallboxCache = WallboxCacheDefault()
+        let cache: WallboxCache = WallboxCacheDefault.shared
         cache.save(object: chargerAdded, update: false)
         
         fetchData()
@@ -54,14 +54,14 @@ class ViewController: UIViewController {
     
     // Delete all Database
     @objc func deleteTapped() {
-        let cache: WallboxCache = WallboxCacheDefault()
+        let cache: WallboxCache = WallboxCacheDefault.shared
         cache.deleteAll()
         fetchData()
     }
     
     
     func fetchData() {
-        let cache: WallboxCache = WallboxCacheDefault()
+        let cache: WallboxCache = WallboxCacheDefault.shared
         chargers = cache.fetchArray(type: ChargerCache.self)
         tableView.reloadData()
     }
@@ -104,7 +104,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             return
         }
         let chargerToRemove = chargers[indexPath.row]
-        let cache: WallboxCache = WallboxCacheDefault()
+        let cache: WallboxCache = WallboxCacheDefault.shared
         cache.delete(chargerToRemove)
 
         fetchData()
@@ -112,7 +112,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let chargerSelected = chargers[indexPath.row]
-        let cache: WallboxCache = WallboxCacheDefault()
+        let cache: WallboxCache = WallboxCacheDefault.shared
         // not need it, but implemented to test the fetch object by id.
         guard let charger = cache.fetch(type: ChargerCache.self, id: chargerSelected.primaryKey()) else {
             return

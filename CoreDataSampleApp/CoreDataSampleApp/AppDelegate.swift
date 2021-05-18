@@ -68,7 +68,7 @@ extension AppDelegate {
                                     name: "Charger 7",
                                     model: "Copper 2")
         
-        let cache: WallboxCache = WallboxCacheDefault()
+        let cache: WallboxCache = WallboxCacheDefault.shared
         
         let chargersToSave = [charger1, charger2, charger3, charger4, charger5, charger6, charger7]
         
@@ -84,7 +84,7 @@ extension AppDelegate {
                                        chargingTime: Double.random(in: 15...10000))
             sessionsToSave.append(session)
         }
-        let cache: WallboxCache = WallboxCacheDefault()
+        let cache: WallboxCache = WallboxCacheDefault.shared
         cache.save(objects: sessionsToSave, update: true)
     }
     

@@ -19,7 +19,14 @@ protocol WallboxCache {
 }
 
 final class WallboxCacheDefault: WallboxCache {
-    private let coreDataStack: CoreDataStack = CoreDataStack(modelName: "Wallbox")
+    
+    static let shared = WallboxCacheDefault()
+    
+    private let coreDataStack: CoreDataStack
+    
+    private init() {
+        self.coreDataStack = CoreDataStack(modelName: "Wallbox")
+    }
     
     func fetch<T, KeyType>(type: T.Type, id: KeyType) -> T? where T : PersistenceObject {
         guard let id = id as? T.KeyType else {
